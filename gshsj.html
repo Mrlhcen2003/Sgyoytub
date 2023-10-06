@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <title>YouTube Thumbnail Downloader</title>
+</head>
+<body>
+    <h1>YouTube Thumbnail Downloader</h1>
+
+    <p>Enter YouTube video URL:</p>
+    <input type="text" id="videoURL" placeholder="Enter video URL">
+    <button onclick="getThumbnail()">Download Thumbnail</button>
+
+    <div id="thumbnail">
+        <!-- هنا ستظهر الصورة المصغرة -->
+    </div>
+
+    <script>
+        function getThumbnail() {
+            // احصل على قيمة الرابط الذي أدخله المستخدم
+            var videoURL = document.getElementById("videoURL").value;
+
+            // استخراج رمز الفيديو من الرابط
+            var videoID = videoURL.split("?v=")[1];
+
+            // إنشاء رابط للصورة المصغرة باستخدام رمز الفيديو
+            var thumbnailURL = "https://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
+
+            // عرض الصورة المصغرة على الصفحة
+            var thumbnailDiv = document.getElementById("thumbnail");
+            thumbnailDiv.innerHTML = "<img src='" + thumbnailURL + "' alt='YouTube Thumbnail'>";
+        }
+    </script>
+
+</body></html>
